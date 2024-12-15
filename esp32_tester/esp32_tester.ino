@@ -12,8 +12,8 @@ Adafruit_LIS3MDL mag;
 
 const int ledPin = 13;
 
-int ch4Pin = 2;  //pin plugged into ch4Pin on reciever. Default: 1492. Leftmost: 993 rightmost:1984.  rudder
-int rudderServoPin = 4;
+int ch4Pin = 17;  //pin plugged into ch4Pin on reciever. Default: 1492. Leftmost: 993 rightmost:1984.  rudder
+int rudderServoPin = 21;
 
 float ax, ay, az, rollRate, pitchRate, yawRate, magX, magY, magZ;
 
@@ -92,6 +92,7 @@ void loop() {
 
   long ch4PWM = pulseIn(ch4Pin, HIGH);  //THIS IS THE BOTTLENECK
   int manualRudder = map(ch4PWM, 1000, 2000, 0, 180);
+  Serial.println(ch4PWM);
   // int manualRudder = 5;
   // int ch4PWM = 1250;
 
